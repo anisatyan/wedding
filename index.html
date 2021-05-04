@@ -59,15 +59,15 @@
 
                 <!--Nav Links-->
                 <!-- <div class="collapse navbar-collapse" id="wexim">
-                <div class="navbar-nav w-100 alt-font">
-                        <a class="nav-link scroll" href="#home">Pembukaan</a>
-                        <a class="nav-link scroll" href="#about">Tentang Kami</a>
-                        <a class="nav-link scroll" href="#portfolio">Acara</a>
-                        <a class="nav-link scroll" href="#price">Tanggal</a>
-                        <a class="nav-link scroll" href="#price">Lokasi</a>
-                        <a class="nav-link scroll" href="#price">Pesan</a>
+                    <div class="navbar-nav w-100 alt-font">
+                            <a class="nav-link scroll" href="#home">Pembukaan</a>
+                            <a class="nav-link scroll" href="#about">Tentang Kami</a>
+                            <a class="nav-link scroll" href="#portfolio">Acara</a>
+                            <a class="nav-link scroll" href="#price">Tanggal</a>
+                            <a class="nav-link scroll" href="#price">Lokasi</a>
+                            <a class="nav-link scroll" href="#price">Pesan</a>
+                    </div>
                 </div> -->
-            </div>
 
                 <!--Side Menu Button-->
                 <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
@@ -391,12 +391,18 @@
             id: 2
         }
 
-        var mymap = L.map('location-map', {
-            zoomDelta: 0.25,
+        var mymap = L.map('location-map', { 
+            zoomControl: false 
         }).setView(val.location, 13);
         L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(mymap);
+        mymap.touchZoom.disable();
+        mymap.doubleClickZoom.disable();
+        mymap.scrollWheelZoom.disable();
+        mymap.boxZoom.disable();
+        mymap.keyboard.disable();
+        $(".leaflet-control-zoom").css("visibility", "hidden");
 
         //Define marker
         const marker = L.marker(val.location).addTo(mymap);
