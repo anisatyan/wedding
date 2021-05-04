@@ -44,6 +44,27 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700');
+@font-face {
+    font-family: 'sweet_pearegular';
+    src: url('font/sweet_pea_2-webfont.woff2') format('woff2'),
+         url('font/sweet_pea_2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.font-primary {
+    font-family: 'sweet_pearegular' !important;
+    font-size: 3em !important;
+}
+
+.font-small {
+    font-size: .7em !important;
+}
+
+.font-big {
+    font-size: 5em !important;
+}
 
 
 .main-font{font-family: 'Roboto', sans-serif;}
@@ -199,7 +220,7 @@ header.header-appear nav .logo .logo-dark, header.header-appear nav.header-dark 
 header.header-appear nav .logo .logo-dark, header.header-appear nav.header-light .logo .logo-dark {visibility: visible;  opacity: 1; width: auto; transition-duration:0.5s; -webkit-transition-duration: 0.5s; -moz-transition-duration: 0.5s; -ms-transition-duration: 0.5s; -o-transition-duration: 0.5s;}
 header.header-appear nav .logo .logo-light, header.header-appear nav.header-light .logo .logo-light {visibility: hidden; opacity: 0; width: 0; transition-duration:0.5s; -webkit-transition-duration: 0.5s; -moz-transition-duration: 0.5s; -ms-transition-duration: 0.5s; -o-transition-duration: 0.5s;}
 header a.logo {display: inline-block; vertical-align: middle;line-height: 0}
-header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
+header a.logo img {max-height:70px; max-width: 100px;vertical-align: sub;}
 
 
 /*header top bar*/
@@ -210,8 +231,8 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
     z-index: 99;
     width: 100%;
     display: block;
-    height: 45px;
-    line-height: 45px;
+    height: 85px;
+    line-height: 85px;
     font-size: 14px;
 }
 
@@ -222,7 +243,7 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
 .top-header-area ~ .navbar-top-default{
     background-color: #ffffff;
     top: 45px;
-    height: 65px;
+    height: 90px;
 }
 
 .header-appear .top-header-area{
@@ -231,6 +252,10 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
 
 .header-appear .top-header-area ~ .navbar-top-default{
     top: 0;
+}
+
+.header-appear .center-logo .logo {
+    margin-top: -22px !important; 
 }
 
 /* nav top default */
@@ -268,7 +293,7 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
 
 
 .header-appear .navbar-top-default {
-    height: 70px;
+    height: 120px;
     position: fixed;
     z-index: 999;
     background: #ffffff;
@@ -281,8 +306,8 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
     -webkit-animation-fill-mode: both;
     -o-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
-    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.15);
 }
 .header-appear .navbar-top-default.navbar-gradient{
     background: #3264f5;
@@ -349,16 +374,6 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
 .nav-icon .navbar-nav .nav-link:nth-child(5).active ~ .menu-line{
     -webkit-transform: translate3d(400%, 0, 0);
     transform: translate3d(400%, 0, 0);
-}
-
-.nav-icon .navbar-nav .nav-link:nth-child(6).active ~ .menu-line{
-    -webkit-transform: translate3d(500%, 0, 0);
-    transform: translate3d(500%, 0, 0);
-}
-
-.nav-icon .navbar-nav .nav-link:nth-child(7).active ~ .menu-line{
-    -webkit-transform: translate3d(600%, 0, 0);
-    transform: translate3d(600%, 0, 0);
 }
 
 
@@ -478,16 +493,22 @@ header a.logo img {max-height:35px; max-width: 100px;vertical-align: sub;}
     left: 50%;
     position: absolute;
     margin-top: -14px;
-    top: 50%;
+    top: 40%;
     text-align: center;
     transform: translateX(-50%);
     z-index: 1;
 }
 
-.center-logo .navbar-nav .nav-link:nth-child(5){
+@media (max-width: 990px) {
+    .center-logo .logo {
+        margin-top: 0px;
+    }
+}
+
+.center-logo .navbar-nav .nav-link:nth-child(4){
     margin-left: auto;
 }
-header .center-logo a.logo img {max-width: 130px;}
+header .center-logo a.logo img {max-width: 230px;}
 
 /*Bottom Nav*/
 
@@ -2119,7 +2140,7 @@ ul.packages li i.fa-times{
     background: url(../images/bg-img6.jpg);
 }
 .bg-img10{
-    background: url(../images/bg-img7.jpg);
+    background: url(../img/bg-timer.jpg);
 }
 .bg-img11{
     background: url(../images/bg-img8.jpg);
@@ -3293,10 +3314,7 @@ ul.count_down.white li p:nth-child(2) {
     width: 100%;
     z-index: 1111;
     overflow-x:hidden;
-    background: #3264f5;
-    background: -moz-linear-gradient(left, #3264f5 2%, #7202bb 82%);
-    background: -webkit-linear-gradient(left, #3264f5 2%,#7202bb 82%);
-    background: linear-gradient(to right, #3264f5 2%,#7202bb 82%);
+    background: #FBEEE8;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3264f5', endColorstr='#7202bb',GradientType=1 );
 }
 .loader-inner {
@@ -4269,4 +4287,192 @@ ul.count_down.white li p:nth-child(2) {
         margin: 5px 0;
     }
 
+}
+
+/* ===================================
+    Custom
+====================================== */
+
+.walimatul {
+    width: 200px;
+}
+
+.btn-main{
+    color: #ffffff !important; 
+    flex: 1 1 auto;
+    transition: 0.5s;
+    background-size: 200% auto;
+    background-color: #CD9D81;
+}
+.btn-main:hover{
+    color: #CD9D81 !important;
+    background-color: #FBEEE8;
+    border: solid 2px #CD9D81;
+}
+
+.intro_container {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%; 
+    background:   url('../img/SVG/bg1.svg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+     text-align: center;
+}
+
+.inner-text {
+    height: 100vh;
+}
+
+.font-dark-brown {
+    color: #CD9D81 !important;
+}
+
+.font-yellow {
+    color: #FFD042;
+}
+
+.shadow-dark {
+    text-shadow: 2px 1px #000;
+}
+
+.break {
+    height: 100px;
+}
+
+.bg-head {
+    background: url('../img/SVG/head-border.svg') no-repeat top ; 
+}
+
+.location-map {
+    padding: 20px 30%;
+    height: 400px;
+    border-radius: 1pc;
+}
+
+.animate {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    animation-delay: 5s;
+}
+
+.tick {
+    font-size:1rem; white-space:nowrap; font-family:arial,sans-serif;
+  }
+  
+  .tick-flip,.tick-text-inline {
+    font-size:2.5em;
+  }
+  
+  .tick-label {
+    margin-top:1em;font-size:1em;
+  }
+  
+  .tick-char {
+    width:1.5em;
+  }
+  
+  .tick-text-inline {
+    display:inline-block;text-align:center;min-width:1em;
+  }
+  
+  .tick-text-inline+.tick-text-inline {
+    margin-left:-.325em;
+  }
+  
+  .tick-group {
+    margin:0 .5em;text-align:center;
+  }
+  
+  
+  .tick-text-inline {
+     color: #ffffff !important; 
+  }
+  
+  .tick-label {
+     color: #ffffff !important; 
+  }
+  
+  .tick-flip-panel {
+     color: rgb(251, 247, 255) !important; 
+  }
+  
+  .tick-flip {
+     font-family:oswald-regular, sans-serif !important; 
+  }
+  
+  .tick-flip-panel-text-wrapper {
+     line-height: 1.45 !important; 
+  }
+  
+  .tick-flip-panel {
+     background-color: #CD9D81 !important; 
+  }
+  
+  .tick-flip {
+     border-radius:0.1em !important; 
+  }
+
+  .protocol-item {
+      width: 15%;
+      padding: 0 2%;
+  }
+
+  .footer-small {
+      height: 90px;
+      padding: 20px 0;
+  }
+
+/*==== FADE IN UP ===*/
+@-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  .fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+  }
+/*==== FADE IN UP ===*/
+
+@media (max-width:960px) {
+    .inner-text {
+        padding: 0 5%;
+    }
+    .walimatul{
+        width: 150px;
+    }
+
+    .font-big {
+        font-size: 4em !important;
+    }
 }

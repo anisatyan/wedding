@@ -9,10 +9,6 @@ $(window).on("load", function () {
             Loading Timeout
      ====================================== */
 
-    setTimeout(function () {
-        $(".loader").fadeOut("slow");
-    }, 0);
-
 });
 
 jQuery(function ($) {
@@ -38,7 +34,7 @@ jQuery(function ($) {
 
     $(".progress-bar").each(function () {
         $(this).appear(function () {
-            $(this).animate({width: $(this).attr("aria-valuenow") + "%"}, 3000)
+            $(this).animate({width: $(this).attr("aria-valuenow") + "%"}, 1000)
         });
     });
 
