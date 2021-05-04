@@ -399,8 +399,12 @@
         }).addTo(mymap);
 
         //Define marker
-        var marker = L.marker(val.location).addTo(mymap);
+        const marker = L.marker(val.location).addTo(mymap);
 
+        let params = new URLSearchParams(location.search);
+        let receipt =  params.get('to');
+
+        $('#receipt').html(`Saudara/i ${receipt}`);
     </script>
 
 
