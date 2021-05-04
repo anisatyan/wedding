@@ -2660,7 +2660,7 @@ ul.packages li i.fa-times{
     z-index: 99;
     border-radius: 100%;
     background-size: 200% auto;
-    background-image: linear-gradient(to right, #3264f5 0%, #7202bb 51%, #3264f5 100%);
+    background-color: #CD9D81;
 }
 .scroll-top-arrow:hover{
     background-position: right center;
@@ -3306,7 +3306,7 @@ ul.count_down.white li p:nth-child(2) {
 
 .loader {
     bottom: 0;
-    height: 100%;
+    height: 100vh;
     left: 0;
     position: fixed;
     right: 0;
@@ -3315,7 +3315,9 @@ ul.count_down.white li p:nth-child(2) {
     z-index: 1111;
     overflow-x:hidden;
     background: #FBEEE8;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3264f5', endColorstr='#7202bb',GradientType=1 );
+    background-image: url(../img/SVG/bg1.svg);
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 .loader-inner {
     position: absolute;
@@ -4315,7 +4317,7 @@ ul.count_down.white li p:nth-child(2) {
     padding: 0;
     height: 100vh;
     width: 100%; 
-    background:   url('../img/SVG/bg1.svg') no-repeat center center fixed; 
+    background:   url('../img/SVG/bg1.svg') no-repeat fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
