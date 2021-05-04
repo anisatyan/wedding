@@ -2539,11 +2539,12 @@ ul.packages li i.fa-times{
     display: block;
     text-align: center;
     margin: 0 auto;
+    padding: 0 5%;
 }
 
 .contact-form .form-control {
     border: none;
-    border-bottom:1px solid #e2e2e2;
+    border-bottom:1px solid #C3967B;
     padding: 12px 0;
     background: #fff;
     letter-spacing: .7px;
@@ -4447,13 +4448,35 @@ ul.count_down.white li p:nth-child(2) {
   }
 
   .protocol-item {
-      width: 15%;
-      padding: 0 2%;
+      width: 80%;
+      padding: 5% 2%;
   }
 
   .footer-small {
       height: 90px;
       padding: 20px 0;
+  }
+
+  #wishes {
+    background: url('../img/SVG/footer-border.svg') no-repeat bottom;
+    bottom: 0px;
+  }
+
+  .qr-container {
+      width: 100%;
+      height: 500px;
+      background-color: #CD9D81;
+      border: none;
+      border-radius: 1pc;
+  }
+
+  .qr-container img{
+      margin-top: 50px;
+      margin-left: 50px;
+  }
+
+  .qr-modal .modal-dialog {
+      margin-top: 25vh;
   }
 
 /*==== FADE IN UP ===*/
@@ -4517,6 +4540,16 @@ ul.count_down.white li p:nth-child(2) {
         background:   url('../img/SVG/bg1.svg') no-repeat fixed; 
         background-repeat: no-repeat;
         background-size:cover;
+    }
+
+    .font-primary {
+        font-family: 'sweet_pearegular' !important;
+        font-size: 2.4em !important;
+    }
+
+    .protocol-item {
+        width: 50%;
+        padding: 5% 2%;
     }
 }
 
