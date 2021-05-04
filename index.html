@@ -92,7 +92,7 @@
                             <a class="nav-link scroll" href="#main">Acara</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link scroll" href="#countdown">Countdown</a>
+                            <a class="nav-link scroll" href="#countdown">Waktu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link scroll" href="#himbauan">Himbauan</a>
@@ -121,9 +121,10 @@
             <h5 class="py-3 font-dark-brown animate fadeInUp">Sabtu, 29 Mei 2021</h5>
             <div class="break"></div>
             <h5 class="py-3 font-dark-brown animate fadeInUp">Kepada</h5>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center flex-column">
                 <a id="receipt" class="btn btn-main btn-rounded btn-large animate fadeInUp">Saudara -</a>
-                <a href="#main" class="scroll-down scroll font-dark-brown">Buka Undangan <i
+                <a href="#main" onclick="playSound()" class="scroll btn btn-main-alt btn-rounded btn-large animate fadeInUp mobile-open mt-4">Buka Undangan</a>
+                <a href="#main" class="scroll-down scroll font-dark-brown web-open">Buka Undangan <i
                         class="fas fa-chevron-down font-dark-brown"></i></a>
             </div>
         </div>
@@ -351,6 +352,11 @@
         crossorigin=""></script>
 
     <script>
+        function playSound() {
+            var audio = document.getElementById("background-sound");
+            audio.play();
+        }
+        
         function handleTickInit(tick) {
             var locale = {
                 YEAR_PLURAL: 'Tahun',

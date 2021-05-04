@@ -4312,6 +4312,20 @@ ul.count_down.white li p:nth-child(2) {
     border: solid 2px #CD9D81;
 }
 
+.btn-main-alt {
+    color: #CD9D81 !important;
+    background-color: #FBEEE8;
+    border: solid 2px #CD9D81;
+}
+
+.btn-main-alt:hover {
+    color: #ffffff !important; 
+    flex: 1 1 auto;
+    transition: 0.5s;
+    background-size: 200% auto;
+    background-color: #CD9D81;
+}
+
 .intro_container {
     margin: 0;
     padding: 0;
@@ -4476,5 +4490,15 @@ ul.count_down.white li p:nth-child(2) {
 
     .font-big {
         font-size: 4em !important;
+    }
+
+    .web-open {
+        display: none;
+    }
+}
+
+@media (min-width:960px){
+    .mobile-open {
+        display: none;
     }
 }
