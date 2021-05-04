@@ -276,6 +276,16 @@
     </section>
     <!--Team Start-->
     <img src="img/SVG/break.svg" alt="">
+    <section class="px-2" id="message-display">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 data-aos="zoom-in" class="font-dark-brown pb-4 text-center">Pesan Pesan</h2>
+                <div id="team-three-slider" class="owl-carousel owl-theme px-4">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
     <!--Contact Start-->
     <section id="wishes" >
         <div class="container">
@@ -292,25 +302,25 @@
             </div>
 
             <!--contact us-->
-            <form class="contact-form">
+            <div class="contact-form">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <input class="form-control" type="text" placeholder="Nama Anda" required=""
-                                id="first_name" name="first_name">
+                                id="username">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Pesan" id="message" name="message"></textarea>
+                            <textarea class="form-control" placeholder="Pesan" id="message"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-main btn-rounded btn-large mt-4" id="submit_btn"><i
+                        <button class="btn btn-main btn-rounded btn-large mt-4" id="submit_btn" onclick="sendMessage()"><i
                                 class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i> <span>Kirim Pesan</span></button>
                     </div>
                 </div>
-            </form>
+            </div>
 
         </div>
     </section>
@@ -412,11 +422,6 @@
             };
         }
 
-        $(document).ready(function () {
-            AOS.init();
-            $('.tick-credits').remove();
-        });
-
         // Map Configure
         const val = {
             location: [-7.743771328189277, 110.24838141128271],
@@ -439,18 +444,106 @@
         //Define marker
         const marker = L.marker(val.location).addTo(mymap);
 
+        // Add Receipt Name
         let params = new URLSearchParams(location.search);
         let receipt =  params.get('to');
 
         if(receipt){
             $('#receipt').html(`Saudara/i ${receipt}`);
+            $('#username').val(receipt);
         }else{
             $('#receipt-head').remove();
             $('#receipt').remove();
         }
+        
+        // Get data Message
+        const url = "https://jsonblob.com/api/jsonBlob/570bf47e-ad1d-11eb-8e44-f703fb4da7eb";
 
+        function getMessage() {
+            $.get( url, function( response ) {
+                if(response.array.length > 0){
+                    response.array.forEach(element => {
+                        $('#team-three-slider').append(`
+                            <div class="message-card mx-4">
+                                <div class="d-flex flex-column px-4 justify-content-between">
+                                    <p>${element.message}</p>
+                                    <span class="">${element.sender}</span>
+                                </div>
+                                <img src="https://ui-avatars.com/api/?name=${element.sender}&background=CD9D81&color=fff" alt="image">
+                            </div>
+                        `)
+                    });
 
+                    $("#team-three-slider").owlCarousel({
+                        items: 4,
+                        autoplay:true,
+                        loop:true,
+                        dots: false,
+                        nav: false,
+                        responsive: {
+                            991: {
+                                items: 4,
+                            },
+                            767: {
+                                items: 2,
+                            },
+                            320: {
+                                items: 1,
+                            },
+                        }
+                    });
+                }else{
+                    $("#message-display").hide();
+                }
+            });
+        }
 
+        // Send Message
+        async function sendMessage() {
+            const sender = $("#username").val();
+            const message = $("#message").val();
+
+            let data = {
+                "array": []
+            };
+            let id = 0;
+            await $.get( url, function( response ) {
+                console.log(response.array.length);
+                if(response.array.length > 0){
+                    id = response.array[response.array.length - 1].id + 1;
+                    data = response;
+                }else{
+                    id = 1;
+                }
+            });
+
+            let params = {
+                "id": id,
+                "sender": sender,
+                "message": message
+            }
+
+            data.array.push(params);
+
+            console.log(JSON.stringify(data));
+
+            await $.ajax({
+                url: url,
+                type: 'PUT',
+                contentType: 'application/json',
+                Accept: 'application/json',
+                data: `${JSON.stringify(data)}`,
+                success: function(response) {
+                    location.reload();
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            AOS.init();
+            $('.tick-credits').remove();
+            getMessage();
+        });
     </script>
 
 
