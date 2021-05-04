@@ -4513,7 +4513,7 @@ ul.count_down.white li p:nth-child(2) {
         right: 0px;
         bottom: 0px;
         left: 0px;
-        opacity: 0;
+        opacity: 0.5;
         background:   url('../img/SVG/bg1.svg') no-repeat fixed; 
         background-repeat: no-repeat;
         background-size:cover;
